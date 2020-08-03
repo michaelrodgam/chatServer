@@ -1,0 +1,17 @@
+CREATE DATABASE ChatServer;
+
+CREATE TABLE users (
+	Id INT NOT NULL AUTO_INCREMENT,
+    Name VARCHAR(30) NOT NULL,
+    LastName VARChar(30),
+    Email VARCHAR(50),
+    Pass VARCHAR(10),
+  	Age int,
+    PRIMARY KEY(id)
+);
+
+INSERT INTO users (Name, LastName, Email, Pass, Age) 
+	VALUES("Michael", "Rodriguez", "michaelrodgam@gmail.com", "12345", "31");
+	
+INSERT INTO users (Name, LastName, Email, Pass, Age) 
+	VALUES("Guest", "Guest", "guest@gmail.com", "Guest", "31");
