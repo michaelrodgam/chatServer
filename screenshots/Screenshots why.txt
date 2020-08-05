@@ -1,0 +1,9 @@
+Why do I have some screenshots here?
+
+I'm a junior fullstack web developer from Costa Rica, currently I'm looking for a opportunity 
+to work, if someone, like a recruiter, look into my repositories and do not 
+know to much about programming, one screenshot maybe can give me a chance.
+
+This project needs a server to run, and the database too. I have Apache server installed
+on my computer, and a MySQL to manage the DB; but this setup only works in my local network. 
+I'm thinking use AWS ec2 to put my projects online, but not right now. 

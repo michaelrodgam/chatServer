@@ -1,4 +1,4 @@
-/*Mobile*/
+/*Mobile styles*/
 *{
     margin: 0px;
     padding: 0px;
@@ -50,8 +50,9 @@ input[type="submit"], input[type="button"]{
 }
 
 #data{
-    height: 100px;
+    height: 250px;
     overflow-y: auto;
+    border-right: 1px inset #00bcd4;
 }
 
 #user{
@@ -59,8 +60,73 @@ input[type="submit"], input[type="button"]{
     border-top: 2px dotted #ffe78f;
 }
 
-/*Desktop*/
+.bubble{
+    background-color: #263859;
+    border: 1px unset white;
+    color: white;
+    padding: 2px;
+    border-radius: 3%;
+    box-shadow: 2px 2px 1px #ff6768;
+    
+    /*for the bubble tail trick*/
+    position: relative;
+}
+
+.bubble::before{
+    /*Bubble trick*/
+    content: '';
+    position: absolute;
+    left: 10%;
+	top: 100%;
+	border: 8px solid transparent;
+    border-left-color: #263859;
+    border-top-color: #263859;
+}
+
+.smaller{
+    font-size: smaller;
+    color: gray;
+}
+
+.redText{
+    color:#ff6768;
+}
+
+.blueText{
+    color:#00bcd4;
+}
+
+
+/*Desktop styles*/ /*Nothing for now, sorry*/
 @media only screen and (min-width: 768px){
 
+    #liveChat{
+        display:grid;
+        grid-template-columns: auto 100px 450px 100px auto;
+        grid-template-rows: 30px 260px 150px;
+        padding: 10px;
+
+    }
+
+    #liveChat h3{
+        grid-column-start: 3;
+        grid-row-start: 1;
+    }
+
+    #data{
+        grid-column-start: 3;
+        grid-row-start: 2;
+        border: 2px inset #00bcd4;
+        margin: 0;
+    }
+
+    #liveChat form{
+        grid-column-start: 3;
+        grid-row-start: 3;
+    }
+
+    #chat{
+        height: 70px;
+    }
 
 }

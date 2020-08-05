@@ -1,3 +1,6 @@
+//Use this to re-create my database, if you want to test my work. (But remember to grant access to the data base, or change the database.php config).
+
+
 CREATE DATABASE ChatServer;
 
 CREATE TABLE users (
@@ -15,3 +18,25 @@ INSERT INTO users (Name, LastName, Email, Pass, Age)
 	
 INSERT INTO users (Name, LastName, Email, Pass, Age) 
 	VALUES("Guest", "Guest", "guest@gmail.com", "Guest", "31");
+	
+
+CREATE TABLE messages (
+	Id INT NOT NULL AUTO_INCREMENT,
+	Message VARCHAR(512),
+	Date DATETIME,
+	UserId int
+	
+	PRIMARY KEY (Id),
+	CONSTRAINT FOREIGN KEY(UserId)
+		REFERENCES users (Id)
+		ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+INSERT INTO messages (Message, Date, UserId) 
+	VALUES("Testing number 1", "2020-08-03 15:54:00", "1");
+	
+INSERT INTO messages (Message, Date, UserId) 
+	VALUES("Testing message two", "2020-08-03 16:00:00", "1");
+	
+INSERT INTO messages (Message, Date, UserId) 
+	VALUES("Guest testing message one", "2020-08-03 16:00:00", "2");
