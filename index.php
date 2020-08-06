@@ -100,6 +100,7 @@
                 function userName(){
                     $.ajax({
                         url: "./fetch.php",
+                        method: "POST",
                         cache: false,
                         success: function(data){
                             $("#userName").empty();
