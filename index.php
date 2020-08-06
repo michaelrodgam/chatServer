@@ -81,44 +81,54 @@
 
         <script type="text/javascript">
 
-            let count = 0;
-            
+        //here comes the jquery magic...
 
-            function getuserName(){
-
-            }
-            
-            //this function update the messages in the chat
-            function updateMsg(){
-                $.getJSON({
-                    url: "./chatServer.php", cache: false, success: function(data){
-                        //clear the space.
-                        $("#data").empty();
-
-                        //use the JSON, and append the data.
-                        var messages = data;
-                        for(i = 0; i < messages.length; i++){
-                            $("#data").append(
-                                '<div class="bubble"><p><span class="redText">Message: </span>'+messages[i].Message+
-                                '<br><span class="redText smaller">Date: </span><span class="smaller">'+messages[i].Date+'</span></p></div>');
-                        }
-                        setTimeout("updateMsg()",4000);
-                        console.log("updateMsg: "+(count += 1));
-                    }
-                    
-                });
+                let count = 0;
+                console.log("script start");
                 
-            }
-
-
-            //here comes the jquery magic...
-            $(document).ready(function(){
-
-                //update after timeout
-                console.log("script start");    
+                //functions calls
                 updateMsg();
+                userName();
 
-            });
+                //this send the msg to the server and then the server store the msg into the db.
+                function sendMessage(){
+
+                }
+                
+                //The name of the user is set into "name placeholder"
+                //for now just a rest api test... with ajax I can send text, with getJSON objects.
+                function userName(){
+                    $.ajax({
+                        url: "./fetch.php",
+                        cache: false,
+                        success: function(data){
+                            $("#userName").empty();
+                            $("#userName").append(data);
+                        }
+                    });
+
+                }
+                
+                //this function update the messages in the chat
+                function updateMsg(){
+                    $.getJSON({
+                        url: "./chatServer.php", cache: false, success: function(data){
+                            //clear the space.
+                            $("#data").empty();
+
+                            //use the JSON, and append the data.
+                            var messages = data;
+                            for(i = 0; i < messages.length; i++){
+                                $("#data").append(
+                                    '<div class="bubble"><p><span class="redText">Message: </span>'+messages[i].Message+
+                                    '<br><span class="redText smaller">Date: </span><span class="smaller">'+messages[i].Date+'</span></p></div>');
+                            }
+                            setTimeout("updateMsg()",4000);
+                        }
+                        
+                    });
+                    
+                }  
 
         </script>
 

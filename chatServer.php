@@ -1,7 +1,7 @@
 <?php
     //this is just a commment by the way -_-)
     
-    require_once "Database.php";
+    require_once "Database.php"; //needed to use pdo.
     
     //session to store the chats
     session_start();
